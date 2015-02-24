@@ -5,7 +5,7 @@ import unittest
 class KnightTest(unittest.TestCase):
 
     def setUp(self):
-        self.knight = Knight()
+        self.knight = Knight("Lancelot")
 
     def test_move(self):
         knight = self.knight

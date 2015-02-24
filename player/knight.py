@@ -1,7 +1,6 @@
-from dice import roll, D3, D6
-
 class Knight:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = " ".join(["Sir", name])
         self.bruises = 0
         self.curr_pos = 0
         self.tactical_card = -1
@@ -10,6 +9,9 @@ class Knight:
         self.fail_start_count = 0
         self.strike_modifier = 0
         self.unhorsed = False
+
+    def get_name(self):
+        return self.name
 
     def move(self, spaces):
         self.curr_pos += spaces
