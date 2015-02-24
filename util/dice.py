@@ -20,8 +20,8 @@ D60 = 60
 D100 = 100
 
 # Roll a set of dice and get the total value after being adjusted by a modifier
-# count: The number of dice to roll
 # die: The die to roll
+# count: The number of dice to roll
 # modifier: The amount to add (or remove) from the dice roll value
 # Returns the value determined by rolling the dice. Ex: roll(2, Dice.D6, -3) will return a value between -1 and 9
 def roll(die, count=1, modifier=0):
