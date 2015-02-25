@@ -2,10 +2,9 @@ from dice import D3, roll
 from phase import Phase
 
 class Kick(Phase):
-
     def do_kick(self):
-        p1 = self.controller.get_p1()
-        p2 = self.controller.get_p2()
+        p1 = self._controller.get_p1()
+        p2 = self._controller.get_p2()
 
         # We only move during the initial roll
         p1_roll = roll(D3)
@@ -22,5 +21,5 @@ class Kick(Phase):
         # A round will start with the first player in the p1 spot, so we only need to swap
         # when the first player goes second
         if p1_roll < p2_roll:
-            self.controller.set_p1(p2)
-            self.controller.set_p2(p1)
+            self._controller.set_p1(p2)
+            self._controller.set_p2(p1)

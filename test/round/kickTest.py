@@ -8,7 +8,7 @@ class KickTest(unittest.TestCase):
         controller = Controller()
         phase = Kick(controller)
         phase.do_kick()
-        self.assertNotEquals(phase.controller.get_p1(), phase.controller.get_p2())
+        self.assertNotEquals(phase._controller.get_p1(), phase._controller.get_p2())
 
     def test_knight_move_during_kick(self):
         controller = Controller()
@@ -16,8 +16,8 @@ class KickTest(unittest.TestCase):
 
         for i in range(1000):
             phase.do_kick()
-            self.assertNotEquals(0, phase.controller.get_p1().get_current_position())
-            self.assertNotEquals(0, phase.controller.get_p2().get_current_position())
+            self.assertNotEquals(0, phase._controller.get_p1().get_current_position())
+            self.assertNotEquals(0, phase._controller.get_p2().get_current_position())
 
     def test_swap_logic(self):
         controller = Controller()

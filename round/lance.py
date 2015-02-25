@@ -3,8 +3,8 @@ from dice import D6, roll
 
 class TasteOfTheLance(Phase):
     def do_taste_of_the_lance(self):
-        p1 = self.controller.get_p1()
-        p2 = self.controller.get_p2()
+        p1 = self._controller.get_p1()
+        p2 = self._controller.get_p2()
 
         self.determine_strike_modifier(p1)
         self.determine_strike_modifier(p2)
@@ -31,7 +31,7 @@ class TasteOfTheLance(Phase):
         modifier = player.get_strike_modifier()
         strike_roll = roll(D6, 1, modifier)
 
-        if (not opponent.accept_heavy_blows) and strike_roll > 4:
+        if (not opponent.get_accept_heavy_blows()) and strike_roll > 4:
             strike_roll = 4
 
         if 3 <= strike_roll < 5:

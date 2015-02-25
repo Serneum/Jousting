@@ -1,65 +1,68 @@
 class Knight:
     def __init__(self, name):
-        self.name = " ".join(["Sir", name])
-        self.bruises = 0
-        self.curr_pos = 0
-        self.tactical_card = -1
-        self.accept_heavy_blows = True
-        self.points = 0
-        self.fail_start_count = 0
-        self.strike_modifier = 0
-        self.unhorsed = False
+        self.__name = " ".join(["Sir", name])
+        self.__bruises = 0
+        self.__curr_pos = 0
+        self.__tactical_card = -1
+        self.__accept_heavy_blows = True
+        self.__points = 0
+        self.__fail_start_count = 0
+        self.__strike_modifier = 0
+        self.__unhorsed = False
 
     def get_name(self):
-        return self.name
+        return self.__name
 
     def move(self, spaces):
-        self.curr_pos += spaces
+        self.__curr_pos += spaces
 
     def get_current_position(self):
-        return self.curr_pos
+        return self.__curr_pos
 
     def add_bruise(self):
-        self.bruises += 1
+        self.__bruises += 1
 
     def get_bruises(self):
-        return self.bruises
+        return self.__bruises
 
     def set_tactical_card(self, card):
-        self.tactical_card = card
+        self.__tactical_card = card
 
     def get_tactical_card(self):
-        return self.tactical_card
+        return self.__tactical_card
 
     def set_accept_heavy_blows(self, accept):
-        self.accept_heavy_blows = accept
+        self.__accept_heavy_blows = accept
 
     def get_accept_heavy_blows(self):
-        return self.accept_heavy_blows
+        return self.__accept_heavy_blows
 
     def add_fail_start(self):
-        self.fail_start_count += 1
+        self.__fail_start_count += 1
 
     def get_failure_to_start(self):
-        return self.curr_pos < 7
+        return self.__curr_pos < 7
 
     def add_points(self, points):
-        self.points += points
+        self.__points += points
 
     def get_points(self):
-        return self.points
+        return self.__points
 
     def get_disqualified(self):
-        return self.fail_start_count >= 2
+        return self.__fail_start_count >= 2
 
     def set_strike_modifier(self, modifier):
-        self.strike_modifier = modifier
+        self.__strike_modifier = modifier
 
     def get_strike_modifier(self):
-        return self.strike_modifier
+        return self.__strike_modifier
 
     def set_unhorsed(self, unhorsed):
-        self.unhorsed = unhorsed
+        self.__unhorsed = unhorsed
 
     def get_unhorsed(self):
-        return self.unhorsed
+        return self.__unhorsed
+
+    def reset_position(self):
+        self.__curr_pos = 0

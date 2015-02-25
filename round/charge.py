@@ -1,13 +1,10 @@
 from phase import Phase
 from dice import D6, roll
 
-class Charge:
-    def __init__(self, controller):
-        self.controller = controller
-
+class Charge(Phase):
     def do_charge(self):
-        p1 = self.controller.get_p1()
-        p2 = self.controller.get_p2()
+        p1 = self._controller.get_p1()
+        p2 = self._controller.get_p2()
         while not self.check_point_of_contact():
             p1_move = self.limit_movement(self.roll_movement())
             p1.move(p1_move)
@@ -22,14 +19,14 @@ class Charge:
         return roll_val
 
     def limit_movement(self, movement):
-        p1 = self.controller.get_p1()
-        p2 = self.controller.get_p2()
+        p1 = self._controller.get_p1()
+        p2 = self._controller.get_p2()
         # There are 24 spaces on the field, so check how far the players are from each other
         spaces_to_contact = 24 - p1.get_current_position() - p2.get_current_position()
         return movement if movement < spaces_to_contact else spaces_to_contact
 
     def check_point_of_contact(self):
-        p1 = self.controller.get_p1()
-        p2 = self.controller.get_p2()
+        p1 = self._controller.get_p1()
+        p2 = self._controller.get_p2()
         # There are 24 spaces on the field, so if the positions add to 24 the players are at the point of contact
         return p1.get_current_position() + p2.get_current_position() == 24

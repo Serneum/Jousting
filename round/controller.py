@@ -6,12 +6,12 @@ from lance import TasteOfTheLance
 
 class Controller:
     def __init__(self):
-        self.p1 = Knight("Lancelot")
-        self.p2 = Knight("Tor")
-        self.kick = Kick(self)
-        self.charge = Charge(self)
-        self.tactics = TacticsCardRPS(self)
-        self.lance = TasteOfTheLance(self)
+        self.__p1 = Knight("Lancelot")
+        self.__p2 = Knight("Tor")
+        self.__kick = Kick(self)
+        self.__charge = Charge(self)
+        self.__tactics = TacticsCardRPS(self)
+        self.__lance = TasteOfTheLance(self)
 
     def do_game(self):
         p1 = None
@@ -54,27 +54,23 @@ class Controller:
                 print " ".join([p1_name, "and", p2_name, "tie with", str(p1_points), "points"])
 
     def do_round(self):
-        self.kick.do_kick()
-        self.charge.do_charge()
-        self.tactics.do_tactics_rps()
-        self.lance.do_taste_of_the_lance()
-
+        self.__kick.do_kick()
+        self.__charge.do_charge()
+        self.__tactics.do_tactics_rps()
+        self.__lance.do_taste_of_the_lance()
 
     def get_p1(self):
-        return self.p1
+        return self.__p1
 
     def get_p2(self):
-        return self.p2
+        return self.__p2
 
     def set_p1(self, p1):
-        self.p1 = p1
+        self.__p1 = p1
 
     def set_p2(self, p2):
-        self.p2 = p2
+        self.__p2 = p2
 
     def reset_player_positions(self):
-        p1 = self.get_p1()
-        p2 = self.get_p2()
-
-        p1.move(-1 * p1.get_current_position())
-        p2.move(-1 * p2.get_current_position())
+        self.get_p1().reset_position()
+        self.get_p2().reset_position()
