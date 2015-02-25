@@ -24,6 +24,8 @@ def initialize(project):
 
     project.set_property("verbose", True)
 
+    project.set_property("coverage_break_build", False)
+
     project.set_property("flake8_include_test_sources", True)
     project.set_property("flake8_break_build", True)
     project.set_property("flake8_include_test_sources", True)
