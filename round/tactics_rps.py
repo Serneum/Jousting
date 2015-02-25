@@ -10,8 +10,13 @@ class TacticsCardRPS(Phase):
 
         result = rps.judge(p1_card, p2_card)
 
-        if result != 0 and (p1_card == 0 or p2_card == 0):
-                if result == 1:
-                    p1.set_accept_heavy_blows(False)
-                else:
-                    p2.set_accept_heavy_blows(False)
+        if result == 1:
+            if p1_card == 0:
+                p1.set_accept_heavy_blows(False)
+            else:
+                p1.set_won_rps(True)
+        elif result == 2:
+            if p2_card == 0:
+                p2.set_accept_heavy_blows(False)
+            else:
+                p2.set_won_rps(True)

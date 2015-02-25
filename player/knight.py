@@ -7,6 +7,7 @@ class Knight:
         self.__accept_heavy_blows = True
         self.__points = 0
         self.__fail_start_count = 0
+        self.__won_rps = False
         self.__strike_modifier = 0
         self.__unhorsed = False
 
@@ -51,6 +52,12 @@ class Knight:
 
     def get_disqualified(self):
         return self.__fail_start_count >= 2
+
+    def set_won_rps(self, won_rps):
+        self.__won_rps = won_rps
+
+    def get_won_rps(self):
+        return self.__won_rps
 
     def set_strike_modifier(self, modifier):
         self.__strike_modifier = modifier

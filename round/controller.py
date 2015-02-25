@@ -3,6 +3,7 @@ from kick import Kick
 from charge import Charge
 from tactics_rps import TacticsCardRPS
 from lance import TasteOfTheLance
+import random
 
 class Controller:
     def __init__(self):
@@ -54,6 +55,8 @@ class Controller:
                 print " ".join([p1_name, "and", p2_name, "tie with", str(p1_points), "points"])
 
     def do_round(self):
+        self.get_p1().set_tactical_card(random.choice([0, 1, 2]))
+        self.get_p2().set_tactical_card(random.choice([0, 1, 2]))
         self.__kick.do_kick()
         self.__charge.do_charge()
         self.__tactics.do_tactics_rps()
