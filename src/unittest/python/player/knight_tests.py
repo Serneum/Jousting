@@ -1,6 +1,8 @@
-from knight import Knight
-from rps import SHIELD
 import unittest
+
+from jousting.player.knight import Knight
+from jousting.util.rps import SHIELD
+
 
 class KnightTest(unittest.TestCase):
 

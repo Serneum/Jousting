@@ -43,7 +43,7 @@ class Knight:
         self.__fail_start_count += 1
 
     def get_failed_to_start(self):
-        if self.__curr_pos < 7:
+        if self.get_current_position() < 7:
             self.__fail_start = True
         return self.__fail_start
 

@@ -1,5 +1,5 @@
-from phase import Phase
-import rps
+from jousting.round.phase import Phase
+from jousting.util import rps
 
 class TacticsCardRPS(Phase):
     def do_tactics_rps(self):

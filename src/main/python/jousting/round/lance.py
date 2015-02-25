@@ -1,5 +1,5 @@
-from phase import Phase
-from dice import D6, roll
+from jousting.round.phase import Phase
+from jousting.util.dice import D6, roll
 
 class TasteOfTheLance(Phase):
     def do_taste_of_the_lance(self):

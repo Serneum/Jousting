@@ -1,5 +1,5 @@
-from dice import D3, roll
-from phase import Phase
+from jousting.util.dice import D3, roll
+from jousting.round.phase import Phase
 
 class Kick(Phase):
     def do_kick(self):

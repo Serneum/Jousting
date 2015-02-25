@@ -1,6 +1,8 @@
-from kick import Kick
-from controller import Controller
 import unittest
+
+from jousting.round.kick import Kick
+from jousting.round.controller import Controller
+
 
 class KickTest(unittest.TestCase):
 

@@ -1,9 +1,10 @@
-from knight import Knight
-from kick import Kick
-from charge import Charge
-from tactics_rps import TacticsCardRPS
-from lance import TasteOfTheLance
 import random
+
+from jousting.player.knight import Knight
+from jousting.round.kick import Kick
+from jousting.round.charge import Charge
+from jousting.round.tactics_rps import TacticsCardRPS
+from jousting.round.lance import TasteOfTheLance
 
 class Controller:
     def __init__(self):

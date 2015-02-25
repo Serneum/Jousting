@@ -1,5 +1,7 @@
-import dice
 import unittest
+
+from jousting.util import dice
+
 
 class DiceTest(unittest.TestCase):
 

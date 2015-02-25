@@ -1,6 +1,8 @@
-from lance import TasteOfTheLance
-from controller import Controller
 import unittest
+
+from jousting.round.lance import TasteOfTheLance
+from jousting.round.controller import Controller
+
 
 class TasteOfTheLanceTest(unittest.TestCase):
 

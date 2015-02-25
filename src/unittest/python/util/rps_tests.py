@@ -1,5 +1,7 @@
-import rps
 import unittest
+
+from jousting.util import rps
+
 
 class RPSTest(unittest.TestCase):
 
