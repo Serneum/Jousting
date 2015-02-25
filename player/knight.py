@@ -6,6 +6,7 @@ class Knight:
         self.__tactical_card = -1
         self.__accept_heavy_blows = True
         self.__points = 0
+        self.__fail_start = False
         self.__fail_start_count = 0
         self.__won_rps = False
         self.__strike_modifier = 0
@@ -41,8 +42,10 @@ class Knight:
     def add_fail_start(self):
         self.__fail_start_count += 1
 
-    def get_failure_to_start(self):
-        return self.__curr_pos < 7
+    def get_failed_to_start(self):
+        if self.__curr_pos < 7:
+            self.__fail_start = True
+        return self.__fail_start
 
     def add_points(self, points):
         self.__points += points
@@ -71,5 +74,6 @@ class Knight:
     def get_unhorsed(self):
         return self.__unhorsed
 
-    def reset_position(self):
+    def reset_for_round(self):
         self.__curr_pos = 0
+        self.__fail_start = False

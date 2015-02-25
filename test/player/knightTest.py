@@ -68,10 +68,11 @@ class KnightTest(unittest.TestCase):
 
     def test_failure_to_start(self):
         knight = self.knight
-        self.assertTrue(knight.get_failure_to_start())
+        self.assertTrue(knight.get_failed_to_start())
 
         knight.move(6)
-        self.assertTrue(knight.get_failure_to_start())
+        self.assertTrue(knight.get_failed_to_start())
 
-        knight.move(1)
-        self.assertFalse(knight.get_failure_to_start())
+        knight.reset_for_round()
+        knight.move(7)
+        self.assertFalse(knight.get_failed_to_start())

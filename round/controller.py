@@ -34,7 +34,7 @@ class Controller:
 
             print " ".join(["At the end of round", str(i + 1), p1_name, "has", str(p1.get_points()),
                             "points, and", p2_name, "has", str(p2.get_points()), "points."])
-            self.reset_player_positions()
+            self.reset_players_for_new_round()
 
         if p1.get_unhorsed():
             print " ".join([p2_name, "wins by unhorsing", p1_name])
@@ -55,12 +55,22 @@ class Controller:
                 print " ".join([p1_name, "and", p2_name, "tie with", str(p1_points), "points"])
 
     def do_round(self):
-        self.get_p1().set_tactical_card(random.choice([0, 1, 2]))
-        self.get_p2().set_tactical_card(random.choice([0, 1, 2]))
+        p1 = self.get_p1()
+        p2 = self.get_p2()
+
+        p1.set_tactical_card(random.choice([0, 1, 2]))
+        p1.set_tactical_card(random.choice([0, 1, 2]))
+
         self.__kick.do_kick()
         self.__charge.do_charge()
-        self.__tactics.do_tactics_rps()
-        self.__lance.do_taste_of_the_lance()
+
+        if p1.get_failed_to_start():
+            print " ".join([p1.get_name(), "failed to start and the round is over."])
+        elif p2.get_failed_to_start():
+            print " ".join([p2.get_name(), "failed to start and the round is over."])
+        else:
+            self.__tactics.do_tactics_rps()
+            self.__lance.do_taste_of_the_lance()
 
     def get_p1(self):
         return self.__p1
@@ -74,6 +84,6 @@ class Controller:
     def set_p2(self, p2):
         self.__p2 = p2
 
-    def reset_player_positions(self):
-        self.get_p1().reset_position()
-        self.get_p2().reset_position()
+    def reset_players_for_new_round(self):
+        self.get_p1().reset_for_round()
+        self.get_p2().reset_for_round()

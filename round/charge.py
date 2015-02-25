@@ -12,6 +12,11 @@ class Charge(Phase):
             p2_move = self.limit_movement(self.roll_movement())
             p2.move(p2_move)
 
+        if p1.get_failed_to_start():
+            p1.add_fail_start()
+        elif p2.get_failed_to_start():
+            p2.add_fail_start()
+
     def roll_movement(self):
         # Roll two dice and subtract a third die roll from their value
         roll_val = roll(D6, 2, -1 * roll(D6, 1))
