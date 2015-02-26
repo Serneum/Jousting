@@ -14,7 +14,7 @@ class TasteOfTheLance(Phase):
         self.determine_strike_modifier(p2, p2_tactical_modifier)
 
         self.strike_roll(p1, p2)
-        if not p2.get_unhorsed:
+        if not p2.get_unhorsed():
             self.strike_roll(p2, p1)
 
     def determine_strike_modifier(self, player, tactical=0):
