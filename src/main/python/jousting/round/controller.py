@@ -5,6 +5,7 @@ from jousting.round.kick import Kick
 from jousting.round.charge import Charge
 from jousting.round.tactics_rps import TacticsCardRPS
 from jousting.round.lance import TasteOfTheLance
+from jousting.util.rps import SHIELD, COUNTER, LUNGE
 
 class Controller:
     def __init__(self):
@@ -59,8 +60,8 @@ class Controller:
         p1 = self.get_p1()
         p2 = self.get_p2()
 
-        p1.set_tactical_card(random.choice([0, 1, 2]))
-        p1.set_tactical_card(random.choice([0, 1, 2]))
+        p1.set_tactical_card(random.choice([SHIELD, COUNTER, LUNGE]))
+        p2.set_tactical_card(random.choice([SHIELD, COUNTER, LUNGE]))
 
         self.__kick.do_kick()
         self.__charge.do_charge()

@@ -1,13 +1,15 @@
 from jousting.round.phase import Phase
 from jousting.util.dice import D6, roll
+from jousting.util.rps import SHIELD
+
 
 class TasteOfTheLance(Phase):
     def do_taste_of_the_lance(self):
         p1 = self._controller.get_p1()
         p2 = self._controller.get_p2()
 
-        p1_tactical_modifier = 1 if p1.get_won_rps() and p1.get_tactical_card() != 0 else 0
-        p2_tactical_modifier = 1 if p2.get_won_rps() and p2.get_tactical_card() != 0 else 0
+        p1_tactical_modifier = 1 if p1.get_won_rps() and p1.get_tactical_card() != SHIELD else 0
+        p2_tactical_modifier = 1 if p2.get_won_rps() and p2.get_tactical_card() != SHIELD else 0
         self.determine_strike_modifier(p1, p1_tactical_modifier)
         self.determine_strike_modifier(p2, p2_tactical_modifier)
 

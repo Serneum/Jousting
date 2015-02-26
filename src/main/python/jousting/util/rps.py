@@ -6,5 +6,3 @@ LUNGE = 2
 def judge(p1_choice, p2_choice):
     diff = p1_choice - p2_choice
     return (diff + 3) if diff < 0 else diff
-    if p1_choice == p2_choice:
-        return 0
