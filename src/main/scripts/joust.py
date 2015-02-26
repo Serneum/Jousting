@@ -1,4 +1,5 @@
 from jousting.round.controller import Controller
+from jousting.player.knight import Knight
 
 # pygame.init()
 #
@@ -28,7 +29,9 @@ from jousting.round.controller import Controller
 #     if pressed[K_d]:
 #         pX += 1
 
-controller = Controller()
+p1 = Knight("Lancelot")
+p2 = Knight("Percival")
+controller = Controller(p1, p2)
 controller.do_game()
 
 # while True:
