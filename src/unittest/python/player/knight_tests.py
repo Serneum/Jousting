@@ -78,3 +78,7 @@ class KnightTest(unittest.TestCase):
         knight.reset_for_round()
         knight.move(7)
         self.assertFalse(knight.get_failed_to_start())
+
+    def test_get_name(self):
+        name = self.knight.get_name()
+        self.assertEquals("Sir Lancelot", name)
