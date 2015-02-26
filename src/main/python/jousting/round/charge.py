@@ -13,6 +13,9 @@ class Charge(Phase):
             p2_move = self.limit_movement(self.roll_movement())
             p2.move(p2_move)
 
+        p1.determine_failed_to_start()
+        p2.determine_failed_to_start()
+
         if p1.get_failed_to_start():
             p1.add_fail_start()
         elif p2.get_failed_to_start():

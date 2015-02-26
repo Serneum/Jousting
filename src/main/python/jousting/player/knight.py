@@ -42,9 +42,11 @@ class Knight:
     def add_fail_start(self):
         self.__fail_start_count += 1
 
-    def get_failed_to_start(self):
+    def determine_failed_to_start(self):
         if self.get_current_position() < 7:
             self.__fail_start = True
+
+    def get_failed_to_start(self):
         return self.__fail_start
 
     def add_points(self, points):
