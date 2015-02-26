@@ -1,7 +1,5 @@
 import unittest
 
-from mockito import mock, when, unstub
-
 from jousting.round.kick import Kick
 from jousting.round.controller import Controller
 from jousting.player.knight import Knight
@@ -13,9 +11,6 @@ class KickTest(unittest.TestCase):
         p2 = Knight("P2")
         self.controller = Controller(p1, p2)
         self.kick = Kick(self.controller)
-
-    def tearDown(self):
-        unstub()
 
     def test_kick(self):
         self.kick.do_kick()
