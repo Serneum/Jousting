@@ -14,6 +14,7 @@ class TacticsCardRPSTest(unittest.TestCase):
 
         self.p1 = Knight("Name")
         self.p2 = Knight("Name")
+
         when(self.controller).get_p1().thenReturn(self.p1)
         when(self.controller).get_p2().thenReturn(self.p2)
 
@@ -26,9 +27,6 @@ class TacticsCardRPSTest(unittest.TestCase):
         self.assertTrue(self.p2.get_accept_heavy_blows())
 
     def test_rps_p1_wins_with_shield(self):
-        when(self.controller).get_p1().thenReturn(self.p1)
-        when(self.controller).get_p2().thenReturn(self.p2)
-
         when(self.p1).get_tactical_card().thenReturn(rps.SHIELD)
         when(self.p2).get_tactical_card().thenReturn(rps.LUNGE)
 
@@ -37,9 +35,6 @@ class TacticsCardRPSTest(unittest.TestCase):
         self.assertTrue(self.p2.get_accept_heavy_blows())
 
     def test_rps_p2_wins_with_shield(self):
-        when(self.controller).get_p1().thenReturn(self.p1)
-        when(self.controller).get_p2().thenReturn(self.p2)
-
         when(self.p1).get_tactical_card().thenReturn(rps.LUNGE)
         when(self.p2).get_tactical_card().thenReturn(rps.SHIELD)
 
@@ -48,9 +43,6 @@ class TacticsCardRPSTest(unittest.TestCase):
         self.assertFalse(self.p2.get_accept_heavy_blows())
 
     def test_rps_p1_wins_not_shield(self):
-        when(self.controller).get_p1().thenReturn(self.p1)
-        when(self.controller).get_p2().thenReturn(self.p2)
-
         when(self.p1).get_tactical_card().thenReturn(rps.COUNTER)
         when(self.p2).get_tactical_card().thenReturn(rps.SHIELD)
 
@@ -60,10 +52,7 @@ class TacticsCardRPSTest(unittest.TestCase):
         self.assertTrue(self.p1.get_won_rps())
         self.assertFalse(self.p2.get_won_rps())
 
-    def test_rps_p1_wins_not_shield(self):
-        when(self.controller).get_p1().thenReturn(self.p1)
-        when(self.controller).get_p2().thenReturn(self.p2)
-
+    def test_rps_p2_wins_not_shield(self):
         when(self.p1).get_tactical_card().thenReturn(rps.COUNTER)
         when(self.p2).get_tactical_card().thenReturn(rps.LUNGE)
 
