@@ -7,10 +7,11 @@ from jousting.round.tactics_rps import TacticsCardRPS
 from jousting.round.lance import TasteOfTheLance
 from jousting.util.rps import SHIELD, COUNTER, LUNGE
 
+
 class Controller:
-    def __init__(self):
-        self.__p1 = Knight("Lancelot")
-        self.__p2 = Knight("Tor")
+    def __init__(self, p1, p2):
+        self.__p1 = p1
+        self.__p2 = p2
         self.__kick = Kick(self)
         self.__charge = Charge(self)
         self.__tactics = TacticsCardRPS(self)

@@ -12,16 +12,16 @@ import random
 class TasteOfTheLanceTest(unittest.TestCase):
 
     def setUp(self):
-        self.controller = mock(Controller)
-        self.lance = TasteOfTheLance(self.controller)
-
         self.p1 = Knight("P1")
         self.p2 = Knight("P2")
+        controller = mock(Controller)
+        self.lance = TasteOfTheLance(controller)
+
         when(self.p1).get_current_position().thenReturn(0)
         when(self.p1).get_bruises().thenReturn(0)
 
-        when(self.controller).get_p1().thenReturn(self.p1)
-        when(self.controller).get_p2().thenReturn(self.p2)
+        when(controller).get_p1().thenReturn(self.p1)
+        when(controller).get_p2().thenReturn(self.p2)
 
     def tearDown(self):
         unstub()

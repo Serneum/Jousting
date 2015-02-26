@@ -4,19 +4,21 @@ from jousting.round.controller import Controller
 from jousting.player.knight import Knight
 from jousting.round.tactics_rps import TacticsCardRPS
 from jousting.util import rps
-from mockito import mock, when
+from mockito import mock, when, unstub
 
 
 class TacticsCardRPSTest(unittest.TestCase):
     def setUp(self):
-        self.controller = mock(Controller)
-        self.tactics_rps = TacticsCardRPS(self.controller)
-
         self.p1 = Knight("P1")
         self.p2 = Knight("P2")
+        controller = mock(Controller)
+        self.tactics_rps = TacticsCardRPS(controller)
 
-        when(self.controller).get_p1().thenReturn(self.p1)
-        when(self.controller).get_p2().thenReturn(self.p2)
+        when(controller).get_p1().thenReturn(self.p1)
+        when(controller).get_p2().thenReturn(self.p2)
+
+    def tearDown(self):
+        unstub()
 
     def test_rps_tie(self):
         when(self.p1).get_tactical_card().thenReturn(rps.SHIELD)
