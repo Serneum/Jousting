@@ -12,8 +12,8 @@ class TacticsCardRPSTest(unittest.TestCase):
         self.controller = mock(Controller)
         self.tactics_rps = TacticsCardRPS(self.controller)
 
-        self.p1 = Knight("Name")
-        self.p2 = Knight("Name")
+        self.p1 = Knight("P1")
+        self.p2 = Knight("P2")
 
         when(self.controller).get_p1().thenReturn(self.p1)
         when(self.controller).get_p2().thenReturn(self.p2)
