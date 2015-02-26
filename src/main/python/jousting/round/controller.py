@@ -55,7 +55,7 @@ class Controller:
             elif p2_points > p1_points:
                 print " ".join([p2_name, "wins", str(p2_points), "to", str(p1_points)])
             else:
-                print " ".join([p1_name, "and", p2_name, "tie with", str(p1_points), "points"])
+                print " ".join([p1_name, "and", p2_name, "tie with", str(p1_points), "points."])
 
     def do_round(self):
         p1 = self.get_p1()
