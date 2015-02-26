@@ -10,12 +10,13 @@ use_plugin("python.unittest")
 use_plugin("python.flake8")
 use_plugin("python.frosted")
 
-default_task = ["clean", "publish", "build_source_distribution"]
+default_task = ["clean", "publish"]
 
-summary = "A game based on To Cry a Joust. Written in Python using PyGame."
+summary = "A Python implementation of the To Cry a Joust rule set."
 authors = [Author("Chris Rees", "serneum@gmail.com")]
-url = "https://github.com/Serneum/Jousting"
+url = "https://github.com/Serneum/jousting-core"
 license = "Apache License, Version 2.0"
+version = "1.0"
 
 @init
 def initialize(project):
@@ -31,3 +32,13 @@ def initialize(project):
     project.set_property("flake8_include_test_sources", True)
 
     project.set_property('frosted_include_test_sources', True)
+
+    project.set_property("distutils_classifiers", [
+                         'Programming Language :: Python',
+                         'Programming Language :: Python :: 2.7',
+                         'Development Status :: 5 - Production/Stable',
+                         'Environment :: Console',
+                         'Intended Audience :: Developers',
+                         'License :: OSI Approved :: Apache Software License',
+                         'Topic :: Games/Entertainment :: Simulation',
+                         'Topic :: Software Development :: Libraries :: Python Modules'])
