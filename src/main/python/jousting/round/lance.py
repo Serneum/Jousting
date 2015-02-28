@@ -8,14 +8,15 @@ class TasteOfTheLance(Phase):
         p1 = self._controller.get_p1()
         p2 = self._controller.get_p2()
 
-        p1_tactical_modifier = 1 if p1.get_won_rps() and p1.get_tactical_card() != SHIELD else 0
-        p2_tactical_modifier = 1 if p2.get_won_rps() and p2.get_tactical_card() != SHIELD else 0
-        self.determine_strike_modifier(p1, p1_tactical_modifier)
-        self.determine_strike_modifier(p2, p2_tactical_modifier)
+        if not p1.get_failed_to_start() and not p2.get_failed_to_start():
+            p1_tactical_modifier = 1 if p1.get_won_rps() and p1.get_tactical_card() != SHIELD else 0
+            p2_tactical_modifier = 1 if p2.get_won_rps() and p2.get_tactical_card() != SHIELD else 0
+            self.determine_strike_modifier(p1, p1_tactical_modifier)
+            self.determine_strike_modifier(p2, p2_tactical_modifier)
 
-        self.strike_roll(p1, p2)
-        if not p2.get_unhorsed():
-            self.strike_roll(p2, p1)
+            self.strike_roll(p1, p2)
+            if not p2.get_unhorsed():
+                self.strike_roll(p2, p1)
 
     def determine_strike_modifier(self, player, tactical=0):
         if player.get_current_position() <= 12:
